@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>49e6d95e-cf55-449f-885a-05319996b660</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Wooo.Core</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ArgsExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ArgsObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extend.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IServiceExecuter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IWebView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServiceBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServiceManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WoodCore.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)core.js" />
+  </ItemGroup>
+</Project>

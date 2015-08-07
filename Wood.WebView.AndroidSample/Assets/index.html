@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<script type="text/javascript" src="NavJS.js"></script>
+    <script type="text/javascript" src="http://www.google.com/a.js"></script>
+       <script type="text/javascript" src="NavJS.Plugins.js"></script>-->
+    <script>
+        function toast() {
+            //alert(Wood);
+            Wood.Toast.showLong('Toast');
+            //alert(Coco);
+        }
+        function onPlatform() {
+            Wood.OnPlatform(function () {
+                Wood.Toast.showShort("android");
+            }, function () {
+                Wood.Toast.showShort("ios");
+
+            }, function() {
+                Wood.Toast.showShort("wp");
+            });
+        }
+
+        function vibrate() {
+            Wood.Vibrator.vibrate(3000);
+        }
+        function cancel() {
+            Wood.Vibrator.cancel();
+        }
+        function vibrate_patern() {
+            Wood.Vibrator.vibrate([100, 2000, 100, 3000], 0);
+        }
+        function currentPos() {
+            Wood.Location.currentPos(function (p) { Wood.Toast.showShort(p.lng); });
+        }
+        function getPos() {
+            var a = Wood.Location.getPos();
+            Wood.Toast.showShort(a.lng);
+        }
+
+        var id = "";
+        function watch() {
+            id = Wood.Location.watch(function (p) {
+              document.getElementById("div").innerHTML += "<p>lng:" + p.lng + " lat:" + p.lat + "</p>";
+          });
+        }
+        function unwatch() {
+            Wood.Location.unwatch(id);
+        }
+        function clear() {
+            document.getElementById("div").innerText += "";
+        }
+    </script>
+</head>
+<body>
+    <button onclick="toast()">Toast</button>
+    <button onclick="onPlatform()">onPlatform</button>
+    <button onclick="vibrate()">Vibrator</button>
+    <button onclick="cancel()">Cancel Vibrator</button>
+    <button onclick="vibrate_patern()">Vibrator patern</button>
+    <button onclick="currentPos()">GetCurrent Pos</button>
+    <button onclick="getPos()">getPos</button>
+    <button onclick="watch()">watch Pos</button>
+    <button onclick="unwatch()">unwatch Pos</button>
+    <button onclick="clear()">clear</button>
+    <div id="div" style="width: 100%;border: 1px solid #ccc">
+
+    </div>
+</body>
+</html>

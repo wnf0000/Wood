@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{6F931FD8-7168-43F5-8AE3-DC9D6D6A5C79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{EDF945D8-5F00-4CFB-BE2A-95DCE41E9E9E}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Wood.Core", "Wood.Core\Wood.Core.shproj", "{49E6D95E-CF55-449F-885A-05319996B660}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wood.WebView.Droid", "Wood.WebView.Droid\Wood.WebView.Droid.csproj", "{228AF4F8-8A4D-472B-8CD3-3136578D4ABB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wood.WebView.AndroidSample", "Wood.WebView.AndroidSample\Wood.WebView.AndroidSample.csproj", "{E393B379-40E8-46B0-9187-468CE5EC8722}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Wood.Core\Wood.Core.projitems*{49e6d95e-cf55-449f-885a-05319996b660}*SharedItemsImports = 13
+		Wood.Core\Wood.Core.projitems*{228af4f8-8a4d-472b-8cd3-3136578d4abb}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{228AF4F8-8A4D-472B-8CD3-3136578D4ABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{228AF4F8-8A4D-472B-8CD3-3136578D4ABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{228AF4F8-8A4D-472B-8CD3-3136578D4ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{228AF4F8-8A4D-472B-8CD3-3136578D4ABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E393B379-40E8-46B0-9187-468CE5EC8722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E393B379-40E8-46B0-9187-468CE5EC8722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E393B379-40E8-46B0-9187-468CE5EC8722}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E393B379-40E8-46B0-9187-468CE5EC8722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E393B379-40E8-46B0-9187-468CE5EC8722}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E393B379-40E8-46B0-9187-468CE5EC8722}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{49E6D95E-CF55-449F-885A-05319996B660} = {6F931FD8-7168-43F5-8AE3-DC9D6D6A5C79}
+		{228AF4F8-8A4D-472B-8CD3-3136578D4ABB} = {6F931FD8-7168-43F5-8AE3-DC9D6D6A5C79}
+		{E393B379-40E8-46B0-9187-468CE5EC8722} = {EDF945D8-5F00-4CFB-BE2A-95DCE41E9E9E}
+	EndGlobalSection
+EndGlobal
