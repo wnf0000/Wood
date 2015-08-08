@@ -10,9 +10,7 @@
        <script type="text/javascript" src="NavJS.Plugins.js"></script>-->
     <script>
         function toast() {
-            //alert(Wood);
             Wood.Toast.showLong('Toast');
-            //alert(Coco);
         }
         function onPlatform() {
             Wood.OnPlatform(function () {
@@ -24,7 +22,6 @@
                 Wood.Toast.showShort("wp");
             });
         }
-
         function vibrate() {
             Wood.Vibrator.vibrate(3000);
         }
@@ -41,7 +38,6 @@
             var a = Wood.Location.getPos();
             Wood.Toast.showShort(a.lng);
         }
-
         var id = "";
         function watch() {
             id = Wood.Location.watch(function (p) {
