@@ -7,7 +7,6 @@
             return new window.XMLHttpRequest();
         } catch (e) { }
     }
-
     function createActiveXHR() {
         try {
             return new window.ActiveXObject('Microsoft.XMLHTTP');
@@ -24,24 +23,22 @@
             xhr.send(JSON.stringify(data));
 
             if (xhr.status == 200) {
-                return JSON.parse(xhr.responseText);
+                if (hasReturn)
+                    return JSON.parse(xhr.responseText);
 
             } else {
-                alert('Error');
+                alert(xhr.statusText);
             }
         }
         catch (err) {
-            alert('错误名称: ' + err.name + '');
-            alert('错误信息: ' + err.message + '');
+
         }
     }
-
-
     function GenerateCallBackname() {
-        return 'callback_' + Math.random().toString().replace('.', '') + '_' + new Date().getTime() ;
+        return 'callback_' + Math.random().toString().replace('.', '') + '_' + new Date().getTime();
     }
     var Wood = {
-        Callbacks :{},
+        Callbacks: {},
         RegisterService: function (serviceName) {
             return new service(serviceName);
         },
@@ -73,7 +70,7 @@
             else {
                 PostRequest(paramObj, hasReturn);
             }
-            
+
         },
         OnPlatform: function (android, ios, wp) {
             switch (platform) {
@@ -99,7 +96,6 @@
             }
         }
     };
-
     var service = function (serviceName) {
         Wood[serviceName] = this;
         this.serviceName = serviceName;
