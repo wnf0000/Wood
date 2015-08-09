@@ -13,10 +13,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wood.WebView.Droid", "Wood.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wood.WebView.AndroidSample", "Wood.WebView.AndroidSample\Wood.WebView.AndroidSample.csproj", "{E393B379-40E8-46B0-9187-468CE5EC8722}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wood.WebView.Touch", "Wood.WebView.Touch\Wood.WebView.Touch.csproj", "{A9260E49-46DE-4498-8D9F-1F31A84B48AA}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Wood.Core\Wood.Core.projitems*{49e6d95e-cf55-449f-885a-05319996b660}*SharedItemsImports = 13
 		Wood.Core\Wood.Core.projitems*{228af4f8-8a4d-472b-8cd3-3136578d4abb}*SharedItemsImports = 4
+		Wood.Core\Wood.Core.projitems*{a9260e49-46de-4498-8d9f-1f31a84b48aa}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +36,10 @@ Global
 		{E393B379-40E8-46B0-9187-468CE5EC8722}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E393B379-40E8-46B0-9187-468CE5EC8722}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E393B379-40E8-46B0-9187-468CE5EC8722}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A9260E49-46DE-4498-8D9F-1F31A84B48AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9260E49-46DE-4498-8D9F-1F31A84B48AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9260E49-46DE-4498-8D9F-1F31A84B48AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9260E49-46DE-4498-8D9F-1F31A84B48AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,5 +48,6 @@ Global
 		{49E6D95E-CF55-449F-885A-05319996B660} = {6F931FD8-7168-43F5-8AE3-DC9D6D6A5C79}
 		{228AF4F8-8A4D-472B-8CD3-3136578D4ABB} = {6F931FD8-7168-43F5-8AE3-DC9D6D6A5C79}
 		{E393B379-40E8-46B0-9187-468CE5EC8722} = {EDF945D8-5F00-4CFB-BE2A-95DCE41E9E9E}
+		{A9260E49-46DE-4498-8D9F-1F31A84B48AA} = {6F931FD8-7168-43F5-8AE3-DC9D6D6A5C79}
 	EndGlobalSection
 EndGlobal
