@@ -19,7 +19,7 @@ namespace Wood.WebView
         public WoodWebView() {
             Initialize();
         }
-        protected WoodWebView(IntPtr handle)
+        public WoodWebView(IntPtr handle)
             : base(handle)
         {
             //Initialize();
