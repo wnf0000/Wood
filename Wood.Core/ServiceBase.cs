@@ -46,6 +46,7 @@ namespace Wood.Core
                     throw new Exception("service " + args.Service + " has no method named " + args.Method);
                 }
                 method(core, args);
+                return;
             }
             throw new Exception("service " + args.Service + " has no method named " + args.Method);
         }
