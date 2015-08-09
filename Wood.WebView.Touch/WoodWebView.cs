@@ -22,13 +22,17 @@ namespace Wood.WebView
         protected WoodWebView(IntPtr handle)
             : base(handle)
         {
-            Initialize();
+            //Initialize();
         }
         public WoodWebView(CGRect frame) : base(frame)
         {
             Initialize();
         }
-
+        public override void AwakeFromNib()
+        {
+            base.AwakeFromNib();
+            Initialize();
+        }
         void Initialize()
         {
             //Console.WriteLine("Initialize");
