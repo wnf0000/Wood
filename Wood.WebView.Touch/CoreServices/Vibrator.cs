@@ -20,7 +20,7 @@ namespace Wood.CoreService
             var cancel = false;
             AddMethod("vibrate", (core, args) =>
             {
-                cancel = true;
+                cancel = false;
                 var pattern = args.GetPn<long[]>(0, null);
                 if (pattern != null)
                 {
