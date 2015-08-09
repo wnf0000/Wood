@@ -187,7 +187,11 @@ namespace Wood.CoreService
 							UIView.AnimateAsync(.5,()=>{
 								layout.BackgroundColor=layout.BackgroundColor.ColorWithAlpha(0);
 							}).ContinueWith(t=>{
-						InvokeOnMainThread (layout.RemoveFromSuperview);
+								InvokeOnMainThread (()=>{
+									layout.Hidden=true;
+									layout.RemoveFromSuperview();
+								
+								});
 
 							});
 							appMsg.State = MsgState.Display;
