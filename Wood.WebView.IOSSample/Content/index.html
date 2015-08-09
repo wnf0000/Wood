@@ -5,9 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--<script type="text/javascript" src="NavJS.js"></script>
-    <script type="text/javascript" src="http://www.google.com/a.js"></script>
-       <script type="text/javascript" src="NavJS.Plugins.js"></script>-->
+
+<style>
+button{margin:20px 10px 0 10px}
+</style>
     <script>
         function toast() {
             Wood.Toast.showLong('Toast');
@@ -32,7 +33,9 @@
             Wood.Vibrator.vibrate([100, 2000, 100, 3000], 0);
         }
         function currentPos() {
-            Wood.Location.currentPos(function (p) { Wood.Toast.showShort(p.lng); });
+            Wood.Location.currentPos(function (p) { 
+            document.getElementById("div").innerHTML += "<div style='color:red'>lng:" + p.lng + " lat:" + p.lat + "</div>";
+            });
         }
         function getPos() {
             var a = Wood.Location.getPos();
@@ -52,7 +55,7 @@
         }
     </script>
 </head>
-<body>
+<body onload="currentPos()">
     <button onclick="toast()">Toast</button>
     <button onclick="onPlatform()">OnPlatform</button>
     <br/>

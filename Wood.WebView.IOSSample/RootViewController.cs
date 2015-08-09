@@ -2,6 +2,7 @@
 using System.Drawing;
 using Foundation;
 using UIKit;
+using System.IO;
 
 namespace Wood.WebView.IOSSample
 {
@@ -29,7 +30,10 @@ namespace Wood.WebView.IOSSample
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
+			var path = Path.Combine (NSBundle.MainBundle.ResourcePath, "Content/index.html");
+			var url = new NSUrl (path);
+			this.webView.LoadRequest (new NSUrlRequest (url));
+			this.webView.ScalesPageToFit = false;
             // Perform any additional setup after loading the view, typically from a nib.
         }
 
