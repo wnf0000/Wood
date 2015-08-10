@@ -12,5 +12,6 @@ namespace Wood.Core
             handler.Dispose();
             handler = null;
         }
+        
     }
 }

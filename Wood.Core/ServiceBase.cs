@@ -7,23 +7,10 @@ namespace Wood.Core
 {
     public abstract partial class ServiceBase : IService, IServiceExecuter
     {
-        #region const
 
-        protected const string P0 = "p0";
-        protected const string P1 = "p1";
-        protected const string P2 = "p2";
-        protected const string P3 = "p3";
-        protected const string P4 = "p4";
-        protected const string P5 = "p5";
-        protected const string P6 = "p6";
-        protected const string P7 = "p7";
-        protected const string P8 = "p8";
-        protected const string P9 = "p9";
-        protected const string P10 = "p10";
-        #endregion
         readonly Dictionary<string, object> _actions = new Dictionary<string, object>();
         public abstract string ServiceName { get; }
-        //protected abstract void RunOnMainThread(Action action);
+
         protected void AddMethod(string methodName, Func<WoodCore, ServiceArgs, object> method)
         {
             _actions.Add(methodName, method);

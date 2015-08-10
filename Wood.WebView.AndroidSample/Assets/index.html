@@ -50,6 +50,13 @@
         function clear() {
             document.getElementById("div").innerText += "";
         }
+
+        function capture() {
+            Wood.Camera.capture(function (data) {
+                //alert(data);
+                document.getElementById("pic").src = "data:image/png;base64,"+data;
+            });
+        }
     </script>
 </head>
 <body>
@@ -63,6 +70,10 @@
     <button onclick="watch()">watch Pos</button>
     <button onclick="unwatch()">unwatch Pos</button>
     <button onclick="clear()">clear</button>
+
+    <button onclick="capture()">capture</button>
+    <button onclick="select()">select</button>
+    <img id="pic" style="width:100%;height:auto"/>
     <div id="div" style="width: 100%;border: 1px solid #ccc">
 
     </div>

@@ -62,5 +62,10 @@ namespace Wood.WebView
             //Console.WriteLine(WoodCore.CoreScript);
             ExecuteScript(WoodCore.CoreScript);
         }
+
+        public object GetContext()
+        {
+            return this.Context;
+        }
     }
 }

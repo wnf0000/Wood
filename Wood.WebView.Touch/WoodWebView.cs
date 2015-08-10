@@ -50,5 +50,19 @@ namespace Wood.WebView
         {
             ExecuteScript(WoodCore.CoreScript);
         }
+
+        public object GetContext()
+        {
+            UIView super=this.Superview;
+
+            while ((super != null))
+            {
+                var responder = super.NextResponder;
+                if (responder is UIViewController)
+                    return responder;
+                super = super.Superview;
+            }
+            return null;
+        }
     }
 }

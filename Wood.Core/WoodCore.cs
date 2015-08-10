@@ -13,7 +13,7 @@ namespace Wood.Core
         string Addr;
         string FullPrefix;
         static int Port;
-
+        public object Context { get { return this.webView.GetContext(); } }
         static WoodCore()
         {
             HttpListener = new HttpListener();
@@ -101,7 +101,7 @@ namespace Wood.Core
                 ReturnErrorToClient(context, exp.Message);
             }
         }
-        void ReturnContentToClient(HttpListenerContext context, object result=null)
+        void ReturnContentToClient(HttpListenerContext context, object result = null)
         {
             context.Response.AddHeader("Access-Control-Allow-Origin", "*");
             context.Response.ContentType = "text/json";
@@ -116,7 +116,7 @@ namespace Wood.Core
 
             context.Response.OutputStream.Close();
         }
-        void ReturnErrorToClient(HttpListenerContext context,string error)
+        void ReturnErrorToClient(HttpListenerContext context, string error)
         {
             context.Response.AddHeader("Access-Control-Allow-Origin", "*");
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
@@ -134,7 +134,7 @@ namespace Wood.Core
                 _coreScript += " var platform = 'android';";
 #endif
 #if IOS
-                 _coreScript += " var platform = 'ios';";
+                _coreScript += " var platform = 'ios';";
 #endif
 #if WP
                  _coreScript += " var platform = 'wp';";
@@ -293,6 +293,14 @@ namespace Wood.Core
         .RegisterMethod('getPos', [], true)
         .RegisterMethod('watch', [], true)
         .RegisterMethod('unwatch', []);
+
+    Wood.RegisterService('Loading')
+        .RegisterMethod('show', ['text'])
+        .RegisterMethod('hide', []);
+
+    Wood.RegisterService('Camera')
+        .RegisterMethod('capture', [])
+        .RegisterMethod('select', []);
 
 })();
 

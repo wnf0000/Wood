@@ -10,5 +10,6 @@ namespace Wood.Core
         void ExecuteScript(string script);
         //void AttachScripts(string script);
         void AttachCoreScripts();
+        object GetContext();
     }
 }
