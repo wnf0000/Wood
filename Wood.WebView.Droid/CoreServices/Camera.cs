@@ -66,6 +66,8 @@ namespace Wood.CoreService
             captureBtn = (Button)FindViewById(Wood.WebView.Resource.Id.capture);
             okBtn = (Button)FindViewById(Wood.WebView.Resource.Id.ok);
             redoBtn = (Button)FindViewById(Wood.WebView.Resource.Id.redo);
+            redoBtn.Visibility = ViewStates.Gone;
+            okBtn.Visibility = ViewStates.Gone;
             ISurfaceHolder surfaceHolder = surfaceView.Holder;
             surfaceHolder.AddCallback(this);
             surfaceHolder.SetType(SurfaceType.PushBuffers);
@@ -130,7 +132,7 @@ namespace Wood.CoreService
             }
             camera.StartPreview();
             //×Ô¶¯¶Ô½¹
-            camera.AutoFocus(this);
+            //camera.AutoFocus(this);
         }
 
         public void SurfaceCreated(ISurfaceHolder holder)
