@@ -30,7 +30,7 @@ namespace Wood.CoreService
                 SuccessHandler act = null;
                 act = (data) =>
                 {
-                    Android.Widget.Toast.MakeText(Application.Context, data.ToString(), ToastLength.Long).Show();
+                    //Android.Widget.Toast.MakeText(Application.Context, data.ToString(), ToastLength.Long).Show();
                     CameraActivity.Success -= act;
                     var base64Str = Convert.ToBase64String(data);
                     core.InvokeCallback(args.CallbackName, base64Str);
@@ -55,7 +55,7 @@ namespace Wood.CoreService
 
         Android.Hardware.Camera camera;
         SurfaceView surfaceView;
-        Button captureBtn, okBtn;
+        Button captureBtn, okBtn,redoBtn;
         byte[] pictureData;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -65,6 +65,7 @@ namespace Wood.CoreService
             surfaceView = (SurfaceView)FindViewById(Wood.WebView.Resource.Id.surfaceView);
             captureBtn = (Button)FindViewById(Wood.WebView.Resource.Id.capture);
             okBtn = (Button)FindViewById(Wood.WebView.Resource.Id.ok);
+            redoBtn = (Button)FindViewById(Wood.WebView.Resource.Id.redo);
             ISurfaceHolder surfaceHolder = surfaceView.Holder;
             surfaceHolder.AddCallback(this);
             surfaceHolder.SetType(SurfaceType.PushBuffers);
@@ -78,6 +79,13 @@ namespace Wood.CoreService
                 if (Success != null) Success(pictureData);
                 Finish();
 
+            };
+            redoBtn.Click += delegate {
+                camera.StartPreview();
+                redoBtn.Visibility = ViewStates.Gone;
+                okBtn.Visibility = ViewStates.Gone;
+                captureBtn.Visibility = ViewStates.Visible;
+                
             };
         }
 
@@ -141,6 +149,9 @@ namespace Wood.CoreService
         {
             camera.StopPreview();
             pictureData = data;
+            redoBtn.Visibility = ViewStates.Visible ;
+            okBtn.Visibility = ViewStates.Visible;
+            captureBtn.Visibility = ViewStates.Gone;
             //Android.Widget.Toast.MakeText(Application.Context, (data==null).ToString()+data.Length, ToastLength.Long).Show();
         }
 

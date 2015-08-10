@@ -28,6 +28,7 @@ namespace Wood.WebView.AndroidSample
 		{
 			global::Wood.WebView.Resource.Id.capture = global::Wood.WebView.AndroidSample.Resource.Id.capture;
 			global::Wood.WebView.Resource.Id.ok = global::Wood.WebView.AndroidSample.Resource.Id.ok;
+			global::Wood.WebView.Resource.Id.redo = global::Wood.WebView.AndroidSample.Resource.Id.redo;
 			global::Wood.WebView.Resource.Id.surfaceView = global::Wood.WebView.AndroidSample.Resource.Id.surfaceView;
 			global::Wood.WebView.Resource.Layout.Camera = global::Wood.WebView.AndroidSample.Resource.Layout.Camera;
 			global::Wood.WebView.Resource.String.ApplicationName = global::Wood.WebView.AndroidSample.Resource.String.ApplicationName;
@@ -66,26 +67,29 @@ namespace Wood.WebView.AndroidSample
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050006
-			public const int WoodWebView2 = 2131034118;
+			// aapt resource value: 0x7f050007
+			public const int WoodWebView2 = 2131034119;
 			
 			// aapt resource value: 0x7f050001
 			public const int capture = 2131034113;
 			
-			// aapt resource value: 0x7f050005
-			public const int goBtn = 2131034117;
+			// aapt resource value: 0x7f050006
+			public const int goBtn = 2131034118;
 			
-			// aapt resource value: 0x7f050003
-			public const int linearLayout1 = 2131034115;
+			// aapt resource value: 0x7f050004
+			public const int linearLayout1 = 2131034116;
 			
 			// aapt resource value: 0x7f050002
 			public const int ok = 2131034114;
 			
+			// aapt resource value: 0x7f050003
+			public const int redo = 2131034115;
+			
 			// aapt resource value: 0x7f050000
 			public const int surfaceView = 2131034112;
 			
-			// aapt resource value: 0x7f050004
-			public const int textUri = 2131034116;
+			// aapt resource value: 0x7f050005
+			public const int textUri = 2131034117;
 			
 			static Id()
 			{
