@@ -10,7 +10,7 @@ namespace Wood.WebView.IOSSample
     // User Interface of the application, as well as listening (and optionally responding) to
     // application events from iOS.
     [Register("AppDelegate")]
-    public partial class AppDelegate : UIApplicationDelegate
+	public partial class AppDelegate : WoodAppDelegate
     {
         // class-level declarations
         public override UIWindow Window

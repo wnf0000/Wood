@@ -53,6 +53,9 @@ button{margin:20px 10px 0 10px}
         function clear() {
             document.getElementById("div").innerText += "";
         }
+        function loading(){
+        	Wood.Loading.show();
+        }
     </script>
 </head>
 <body onload="currentPos()">
@@ -69,6 +72,7 @@ button{margin:20px 10px 0 10px}
     <button onclick="watch()">watch Pos</button>
     <button onclick="unwatch()">unwatch Pos</button>
     <br />
+    <button onclick="loading()">Loading</button>
     <button onclick="clear()">clear</button>
     <div id="div" style="width: 100%;border: 1px solid #ccc">
 

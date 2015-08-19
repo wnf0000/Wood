@@ -22,24 +22,12 @@ namespace Wood.CoreService
         {
             this.AddMethod("showLong", (core, args) =>
             {
-//                BeginRunOnMainThread(() => {
-//                    UIAlertView alert = new UIAlertView();
-//                    alert.Message = args.GetPn(0, string.Empty);
-//                    alert.AddButton("OK");
-//                    alert.Show();
-//                });
-					AppMsg.MakeText(args.GetPn(0, string.Empty),5000).Show();
+				AppMsg.MakeText(args.GetPn(0, string.Empty),5000).Show();
             });
             
             this.AddMethod("showShort", (core, args) =>
             {
-//                BeginRunOnMainThread(() => {
-//                    UIAlertView alert = new UIAlertView();
-//                    alert.Message = args.GetPn(0, string.Empty);
-//                    alert.AddButton("OK");
-//                    alert.Show();
-//                });
-					AppMsg.MakeText(args.GetPn(0, string.Empty),3000).Show();
+				AppMsg.MakeText(args.GetPn(0, string.Empty),3000).Show();
             });
         }
     }
@@ -79,9 +67,7 @@ namespace Wood.CoreService
 				{
 					while (needGoon)
 					{
-						//allDone.Reset();
 						allDone.WaitOne();
-						//allDone.Set();
 						DisplayMsg();
 						allDone.Reset();
 					}
@@ -130,20 +116,21 @@ namespace Wood.CoreService
 			AppMsg appMsg = msgQueue.Dequeue();
 
 			AddMsgToView(appMsg);
-			//allDone.Set();
 		}
 
 		private void AddMsgToView(AppMsg appMsg)
 		{
 			UIApplication.SharedApplication.InvokeOnMainThread(() =>
 				{
-					var size = UIStringDrawing.StringSize (new NSString (appMsg.Text), UIFont.BoldSystemFontOfSize (14f), UIScreen.MainScreen.Bounds.Width - 80, UILineBreakMode.WordWrap);
-					int paddingh=15;
-					int paddingv=8;
+					const int paddingh = 15;
+					const int paddingv = 8;
+					var size = new NSString (appMsg.Text).StringSize (UIFont.BoldSystemFontOfSize (14f), UIScreen.MainScreen.Bounds.Width - 80, UILineBreakMode.WordWrap);
+
 					var inner = new UILabel(
 						new CoreGraphics.CGRect(
 							(UIScreen.MainScreen.Bounds.Width-size.Width)/2,
-							(UIScreen.MainScreen.Bounds.Bottom - size.Height) / 2,
+//							(UIScreen.MainScreen.Bounds.Bottom - size.Height) / 2,
+							(UIScreen.MainScreen.Bounds.Bottom - size.Height-80),
 							size.Width,
 							size.Height
 						)
@@ -160,13 +147,10 @@ namespace Wood.CoreService
 					};
 
 					inner.SizeToFit();
+
 					var rect=inner.Frame;
-					var zeroSizeRect=rect;
-					zeroSizeRect.X+=(rect.Width-0)/2;
-					zeroSizeRect.Y+=rect.Height/2;
-					zeroSizeRect.Size=new CGSize(0,0);
 					var outRect=new CGRect(rect.X-paddingh,rect.Y-paddingv,rect.Width+paddingh*2,rect.Height+paddingv*2);
-					var layout=new UIView(zeroSizeRect){
+					var layout=new UIView(outRect){
 						BackgroundColor = UIColor.FromRGBA(0,0,0,0)
 					};
 					layout.Layer.CornerRadius=8;
@@ -175,15 +159,14 @@ namespace Wood.CoreService
 					inner.Frame=new CGRect(paddingh,paddingv,rect.Width,rect.Height);
 					layout.AddSubview(inner);
 					UIApplication.SharedApplication.KeyWindow.AddSubview(layout);
-					UIView.AnimateAsync(0.5,()=>{
+
+					UIView.AnimateAsync(0.2,()=>{
 						layout.BackgroundColor=UIColor.FromRGBA(0,0,0,200);
-						layout.Frame=outRect;
 					});
 
 					appMsg.State = MsgState.IsShowing;
-					Task.Delay(appMsg.Duration-1000).ContinueWith(r => UIApplication.SharedApplication.InvokeOnMainThread(() =>
+					Task.Delay(appMsg.Duration-700).ContinueWith(r => UIApplication.SharedApplication.InvokeOnMainThread(() =>
 						{
-
 							UIView.AnimateAsync(.5,()=>{
 								layout.BackgroundColor=layout.BackgroundColor.ColorWithAlpha(0);
 							}).ContinueWith(t=>{

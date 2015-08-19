@@ -2,11 +2,13 @@
 using System.Net;
 using Newtonsoft.Json;
 using System.IO;
+using System.Collections.Generic;
 
 namespace Wood.Core
 {
     public class WoodCore
     {
+		static List<WoodCore> Instances = new List<WoodCore> ();
         static HttpListener HttpListener;
         static readonly string BasePrefix;
         IWebView webView;
@@ -16,6 +18,7 @@ namespace Wood.Core
         public object Context { get { return this.webView.GetContext(); } }
         static WoodCore()
         {
+			
             HttpListener = new HttpListener();
             int port = 8850;
             while (port < 8899)
@@ -40,6 +43,7 @@ namespace Wood.Core
         }
         public WoodCore(IWebView webView)
         {
+			Instances.Add (this);
             Addr = Guid.NewGuid().ToString("N");
             FullPrefix = BasePrefix + Addr + "/";
             this.webView = webView;
@@ -48,13 +52,30 @@ namespace Wood.Core
         }
         public void Start()
         {
-            if (!HttpListener.IsListening)
-            {
-                HttpListener.Start();
-                HttpListener.BeginGetContext(new AsyncCallback(Callback), HttpListener);
-            }
-
+			if (!HttpListener.IsListening)
+			{
+				HttpListener.Start();
+				HttpListener.BeginGetContext(new AsyncCallback(Callback), HttpListener);
+			}
         }
+		public static void StartListen()
+		{
+			if (!HttpListener.IsListening)
+			{
+				foreach (var core in Instances) {
+					try{
+						core.Start();	
+					}
+					catch{
+					}
+				}
+			}
+		}
+		public static void StopListion(){
+			if (HttpListener.IsListening) {
+				HttpListener.Stop ();
+			}
+		}
         void Callback(IAsyncResult result)
         {
             var context = HttpListener.EndGetContext(result);
@@ -296,7 +317,7 @@ namespace Wood.Core
 
     Wood.RegisterService('Loading')
         .RegisterMethod('show', ['text'])
-        .RegisterMethod('hide', []);
+        .RegisterMethod('dismiss', []);
 
     Wood.RegisterService('Camera')
         .RegisterMethod('capture', [])
