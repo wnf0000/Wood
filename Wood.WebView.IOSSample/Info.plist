@@ -40,5 +40,9 @@
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>org.haoya.wood</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 </dict>
 </plist>
